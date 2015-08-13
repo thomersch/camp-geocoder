@@ -26,9 +26,6 @@
 					"key": "name"
 				},
 				{
-
-				},
-				{
 					"type": "hstore_tags",
 					"name": "tags",
 					"key": null

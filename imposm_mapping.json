@@ -1,0 +1,51 @@
+{
+	"tags": {
+		"load_all": true,
+		"exclude": [
+			"created_by",
+			"source"
+		]
+	},
+	"use_single_id_space": true,
+	"tables": {
+		"all": {
+			"fields": [
+				{
+					"type": "id",
+					"name": "osm_id",
+					"key": null
+				},
+				{
+					"type": "geometry",
+					"name": "geometry",
+					"key": null
+				},
+				{
+					"type": "string",
+					"name": "name",
+					"key": "name"
+				},
+				{
+
+				},
+				{
+					"type": "hstore_tags",
+					"name": "tags",
+					"key": null
+				}
+			],
+			"type": "geometry",
+			"type_mappings": {
+				"points": {
+					"name": ["__any__"]
+				},
+				"linestrings": {
+					"name": ["__any__"]
+				},
+				"polygons": {
+					"name": ["__any__"]
+				}
+			}
+		}
+	}
+}

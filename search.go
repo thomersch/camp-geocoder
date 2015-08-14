@@ -32,8 +32,8 @@ func bootDB(connStr string) error {
 
 func Search(text string) ([]*Result, error) {
 	rows, err := db.Query(`SELECT sub.osm_id, sub.name, sub.geom FROM
-		(SELECT DISTINCT ON (osm_id) osm_id, name, ST_AsGeoJSON(geometry) AS geom FROM osm_all WHERE name % $1 LIMIT 10) AS sub
-		ORDER BY similarity(sub.name, $1);`, text)
+		(SELECT DISTINCT ON (osm_id) osm_id, name, ST_AsGeoJSON(geometry) AS geom, set_limit(0.1) FROM osm_all WHERE name % $1 LIMIT 10) AS sub
+		ORDER BY similarity(sub.name, $1) DESC;`, text)
 	if err != nil {
 		log.Println(err)
 		return nil, err
